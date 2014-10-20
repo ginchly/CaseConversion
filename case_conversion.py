@@ -32,6 +32,9 @@ def to_camel_case(text):
     text = to_pascal_case(text)
     return text[0].lower() + text[1:]
 
+def to_space_camel_case(text):
+    text = to_pascal_case(text)
+    return " " + text[0].lower() + text[1:]
 
 def to_dot_case(text):
     return text.replace("_", ".")
@@ -96,6 +99,9 @@ class ConvertToCamel(sublime_plugin.TextCommand):
     def run(self, edit):
         run_on_selections(self.view, edit, to_camel_case)
 
+class ConvertToSpaceCamel(sublime_plugin.TextCommand):
+    def run(self, edit):
+        run_on_selections(self.view, edit, to_space_camel_case)
 
 class ConvertToPascal(sublime_plugin.TextCommand):
     def run(self, edit):
